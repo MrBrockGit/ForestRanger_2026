@@ -7,16 +7,26 @@
     <style>
         /* Палитра "Туманный лес": серо-сине-зеленые оттенки */
         body {
-            background-color: #0b1114; /* Глубокий темный, почти графитовый с синим подтоном */
-            background-image: linear-gradient(rgba(11, 17, 20, 0.85), rgba(11, 17, 20, 0.85)), url('image_a8a751.jpg');
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-            color: #cfd8dc; /* Светло-серый с голубоватым отливом */
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #0b1114; /* Темный запасной фон */
+            color: #cfd8dc;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
+        }
+
+        /* Выносим фон в отдельный слой для лучшей совместимости */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: linear-gradient(rgba(11, 17, 20, 0.85), rgba(11, 17, 20, 0.85)), url('image_a8a751.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         header {
@@ -28,7 +38,7 @@
 
         header h1 {
             margin: 0;
-            color: #78909c; /* Приглушенный серо-голубой */
+            color: #78909c;
             font-size: 2.5em;
             letter-spacing: 2px;
         }
@@ -36,11 +46,11 @@
         header p {
             margin: 10px 0 0;
             font-size: 1.1em;
-            color: #546e7a; /* Цвет туманной дымки */
+            color: #546e7a;
         }
 
         nav {
-            background-color: #1c272b; /* Цвет мокрого камня */
+            background-color: #1c272b;
             padding: 15px;
             text-align: center;
             position: sticky;
@@ -69,7 +79,7 @@
         }
 
         section {
-            background-color: rgba(30, 43, 49, 0.9); /* Темная морская волна, уходящая в серый */
+            background-color: rgba(30, 43, 49, 0.92);
             padding: 30px;
             border-radius: 8px;
             margin-bottom: 30px;
@@ -77,7 +87,7 @@
         }
 
         h2 {
-            color: #90a4ae; /* Светлый туманный оттенок */
+            color: #90a4ae;
             border-bottom: 1px solid #37474f;
             padding-bottom: 10px;
             margin-top: 0;
@@ -90,10 +100,8 @@
             margin: 20px 0;
             display: block;
             border: 1px solid #37474f;
-            filter: grayscale(10%) contrast(105%); /* Легкий эффект для атмосферы */
         }
 
-        /* Галерея */
         .gallery {
             display: flex;
             gap: 10px;
@@ -108,7 +116,6 @@
             border: 1px solid #37474f;
         }
 
-        /* Команда */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -133,7 +140,6 @@
             color: #90a4ae;
         }
 
-        /* Журнал */
         .log-entry {
             background-color: rgba(28, 40, 46, 0.75);
             padding: 20px;
@@ -147,25 +153,17 @@
             padding: 30px;
             color: #455a64;
             font-size: 0.9em;
-            background-color: #0b1114;
+            background-color: rgba(11, 17, 20, 0.9);
         }
 
-        ul {
-            padding-left: 20px;
-        }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
 
-        li {
-            margin-bottom: 8px;
-        }
-
-        /* Цвет выделения текста */
-        ::selection {
-            background: #455a64;
-            color: white;
-        }
     </style>
 </head>
 <body>
+
+    <div class="bg-overlay"></div>
 
     <header>
         <h1>PHYLAX (Forest Ranger)</h1>
@@ -182,14 +180,12 @@
 
     <div class="container">
         
-        <!-- Аннотация -->
         <section id="home">
             <h2>Аннотация</h2>
             <p>PHYLAX — это мобильное стелс-приключение с элементами детектива. Игра предлагает иммерсивный геймплей который побуждает исследования и погружение.</p>
             <img src="image_d8a493.jpg" alt="[Концепт-арт PHYLAX]" class="content-img">
         </section>
 
-        <!-- О проекте -->
         <section id="about">
             <h2>О проекте</h2>
             <p><strong>Жанр:</strong> Симулятор, Приключение, Детектив.</p>
@@ -206,7 +202,6 @@
             </ul>
         </section>
 
-        <!-- Команда -->
         <section id="team">
             <h2>Наша команда</h2>
             <div class="team-grid">
@@ -233,10 +228,8 @@
             </div>
         </section>
 
-        <!-- Журнал -->
         <section id="journal">
             <h2>Журнал работы</h2>
-            
             <div class="log-entry">
                 <h3>Этап 1: Проработка идеи и создание концепт артов</h3>
                 <p>Определились с основной идеей и жанром игры и устроили мозговой штурм по поводу идей для реализации.</p>
@@ -265,7 +258,6 @@
             </div>
         </section>
 
-        <!-- Ресурсы -->
         <section id="resources">
             <h2>Ресурсы и материалы</h2>
             <p>тест</p>
