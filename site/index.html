@@ -5,28 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHYLAX - Проект игры</title>
     <style>
-        /* Палитра "Туманный лес": серо-сине-зеленые оттенки */
+
         body {
             margin: 0;
             padding: 0;
-            background-color: #0b1114; /* Темный запасной фон */
+            background: linear-gradient(rgba(11, 17, 20, 0.85), rgba(11, 17, 20, 0.85)), 
+                        url('image_a8a751.jpg'), 
+                        #0b1114; 
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
             color: #cfd8dc;
             font-family: Arial, sans-serif;
             line-height: 1.6;
-        }
-
-        /* Выносим фон в отдельный слой для лучшей совместимости */
-        .bg-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-image: linear-gradient(rgba(11, 17, 20, 0.85), rgba(11, 17, 20, 0.85)), url('image_a8a751.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
         }
 
         header {
@@ -118,26 +109,29 @@
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 15px;
         }
 
         .member-card {
             background-color: rgba(22, 33, 39, 0.95);
-            padding: 15px;
+            padding: 20px;
             border-radius: 5px;
             border: 1px solid #37474f;
+            text-align: center;
         }
 
         .member-card h4 {
-            margin: 0 0 5px 0;
+            margin: 0 0 10px 0;
             color: #eceff1;
+            font-size: 1.1em;
         }
 
         .member-card p {
-            font-size: 0.8em;
-            margin: 3px 0;
+            font-size: 0.9em;
+            margin: 0;
             color: #90a4ae;
+            font-style: italic;
         }
 
         .log-entry {
@@ -150,10 +144,11 @@
 
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 40px;
             color: #455a64;
-            font-size: 0.9em;
-            background-color: rgba(11, 17, 20, 0.9);
+            font-size: 1em;
+            background-color: rgba(11, 17, 20, 0.95);
+            border-top: 1px solid #263238;
         }
 
         ul { padding-left: 20px; }
@@ -162,8 +157,6 @@
     </style>
 </head>
 <body>
-
-    <div class="bg-overlay"></div>
 
     <header>
         <h1>PHYLAX (Forest Ranger)</h1>
@@ -205,26 +198,18 @@
         <section id="team">
             <h2>Наша команда</h2>
             <div class="team-grid">
-                <div class="member-card"><h4>Дмитриев Кирилл Денисович</h4><p>Роль: тест(абзац)</p><p>Вклад: тест</p></div>
-                <div class="member-card"><h4>Титова Анна Александровна</h4><p>Роль: тест(абзац)</p><p>Вклад: тест</p></div>
-                <div class="member-card"><h4>Тишина Кира Константиновна</h4><p>Роль: тест(абзац)</p><p>Вклад: тест</p></div>
-                <div class="member-card"><h4>Баляева Марьяна Денисовна</h4><p>Роль: тест(абзац)</p><p>Вклад: тест</p></div>
-                <div class="member-card"><h4>Мурин Игорь Игоревич</h4><p>Роль: тест(абзац)</p><p>Вклад: тест</p></div>
-                <div class="member-card"><h4>Томашева Анна Владимировна</h4><p>Роль: тест(абзац)</p><p>Вклад: тест</p></div>
-                <div class="member-card"><h4>Чиканчи Ирина Викторовна</h4><p>Роль: тест(абзац)</p><p>Вклад: тест</p></div>
-                <div class="member-card"><h4>Степанов Станислав Сергеевич</h4><p>Роль: тест(абзац)</p><p>Вклад: тест</p></div>
-                <div class="member-card"><h4>Бондарчук Владимир Олегович</h4><p>Роль: тест(абзац)</p><p>Вклад: тест</p></div>
-                <div class="member-card"><h4>Воловик Дарья Сергеевна</h4><p>Роль: тест(абзац)</p><p>Вклад: тест</p></div>
-                <div class="member-card"><h4>Гридчина Анна Александровна</h4><p>Роль: тест(абзац)</p><p>Вклад: тест</p></div>
-                <div class="member-card"><h4>Жирнов Артем Михайлович</h4><p>Роль: тест(абзац)</p><p>Вклад: тест</p></div>
-                <div class="member-card"><h4>Искоростинская Мария Алексеевна</h4><p>Роль: тест(абзац)</p><p>Вклад: тест</p></div>
-                <div class="member-card"><h4>Казакова Диана Александровна</h4><p>Роль: тест(абзац)</p><p>Вклад: тест</p></div>
-                <div class="member-card"><h4>Кирсанова Александра Олеговна</h4><p>Роль: тест(абзац)</p><p>Вклад: тест</p></div>
-                <div class="member-card"><h4>Опарин Георгий Игоревич</h4><p>Роль: тест(абзац)</p><p>Вклад: тест</p></div>
-                <div class="member-card"><h4>Рябчук Иван Денисович</h4><p>Роль: тест(абзац)</p><p>Вклад: тест</p></div>
-                <div class="member-card"><h4>Семисынов Егор Дмитриевич</h4><p>Роль: тест(абзац)</p><p>Вклад: тест</p></div>
-                <div class="member-card"><h4>Ситникова Валерия Владимировна</h4><p>Роль: тест(абзац)</p><p>Вклад: тест</p></div>
-                <div class="member-card"><h4>Соколов Демьян Евгеньевич</h4><p>Роль: тест(абзац)</p><p>Вклад: тест</p></div>
+                <div class="member-card">
+                    <h4>Опарин Георгий</h4>
+                    <p>Левел дизайнер</p>
+                </div>
+                <div class="member-card">
+                    <h4>Тишина Кира</h4>
+                    <p>Сценарист</p>
+                </div>
+                <div class="member-card">
+                    <h4>Баляева Марьяна</h4>
+                    <p>Художник</p>
+                </div>
             </div>
         </section>
 
@@ -260,13 +245,13 @@
 
         <section id="resources">
             <h2>Ресурсы и материалы</h2>
-            <p>тест</p>
+            <p>В данном разделе будут размещены дополнительные материалы проекта.</p>
         </section>
 
     </div>
 
     <footer>
-        <p>тест</p>
+        <p>Московский политех 2026</p>
     </footer>
 
 </body>
