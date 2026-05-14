@@ -79,10 +79,10 @@
 
 ## Фото-пруфы
 
-![Мы на фоне стенда](C:\Users\79261\Downloads\photo_2026-05-12_16-52-21.jpg)
+![Мы на фоне стенда](../docs/images/meropriyatie/photo_2026-05-12_16-52-21.jpg)
 
-![](C:\Users\79261\Downloads\photo_2026-05-12_16-02-40.jpg)
+![Мы на фоне другого стенда](../docs/images/meropriyatie/photo_2026-05-12_16-02-40.jpg)
 
-![](C:\Users\79261\Downloads\photo_2026-05-12_16-42-23.jpg)
+![](../docs/images/meropriyatie/photo_2026-05-12_16-42-23.jpg)
 
-![](C:\Users\79261\Downloads\photo_2026-05-12_16-42-24.jpg)
+![План мероприятия с кабинетами](../docs/images/meropriyatie/photo_2026-05-12_16-42-24.jpg)
