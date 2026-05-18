@@ -64,6 +64,10 @@
 
 ![Палатка, один из ассетов на локация](../docs/images/meropriyatie/journal_imgs/палатка.png)
 
+На данный момент скриншот готового билда выглядит так:
+
+![Готовый билд](../docs/images/meropriyatie/journal_imgs/Screenshot_20260518_191322_ForestRangerGame.jpg)
+
 
 
 
