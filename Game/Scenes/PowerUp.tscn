@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://csei0fde1ug8w"]
+
+[ext_resource type="Script" uid="uid://f2vuytjjk4ap" path="res://Scripts/PowerUp.cs" id="1_v1x7y"]
+[ext_resource type="Texture2D" uid="uid://vkw5dvclvmbu" path="res://Sprites/BattleSprites/Buffs.png" id="2_04hni"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk5lk"]
+atlas = ExtResource("2_04hni")
+region = Rect2(12, 6, 6, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1na4"]
+atlas = ExtResource("2_04hni")
+region = Rect2(6, 6, 6, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4lje"]
+atlas = ExtResource("2_04hni")
+region = Rect2(0, 6, 6, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kflwh"]
+atlas = ExtResource("2_04hni")
+region = Rect2(0, 0, 6, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tne7v"]
+atlas = ExtResource("2_04hni")
+region = Rect2(6, 0, 6, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8g1vi"]
+atlas = ExtResource("2_04hni")
+region = Rect2(12, 0, 6, 6)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u0qpn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kk5lk")
+}],
+"loop": false,
+"name": &"item1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1na4")
+}],
+"loop": false,
+"name": &"item2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4lje")
+}],
+"loop": false,
+"name": &"item3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kflwh")
+}],
+"loop": false,
+"name": &"warn1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tne7v")
+}],
+"loop": false,
+"name": &"warn2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8g1vi")
+}],
+"loop": false,
+"name": &"warn3",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvcc2"]
+size = Vector2(6, 6)
+
+[node name="PowerUp" type="Area2D" unique_id=1046696580]
+script = ExtResource("1_v1x7y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=894001309]
+sprite_frames = SubResource("SpriteFrames_u0qpn")
+animation = &"item1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1540080650]
+shape = SubResource("RectangleShape2D_lvcc2")
+debug_color = Color(0, 0.6, 0.69803923, 0.09019608)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

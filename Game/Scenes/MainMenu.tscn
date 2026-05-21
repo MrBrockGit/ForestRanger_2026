@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://dwvb4nv4rjqn6"]
+
+[ext_resource type="Script" uid="uid://cew4y0k8kcuvh" path="res://Scripts/MainMenu.cs" id="1_tt5f1"]
+[ext_resource type="Texture2D" uid="uid://ii5frrtm28p7" path="res://Sprites/MainMenu/Без названия1171_20260518013053.png" id="2_df05h"]
+[ext_resource type="Texture2D" uid="uid://cuq5qihu2h43m" path="res://Sprites/MainMenu/Без названия1174_20260518013645.png" id="3_8um5k"]
+[ext_resource type="Texture2D" uid="uid://dvbf38v38osk2" path="res://Sprites/MainMenu/Без названия1174_20260518013650.png" id="4_xim88"]
+[ext_resource type="Texture2D" uid="uid://3ppmv0it48e3" path="res://Sprites/MainMenu/Без названия1174_20260518013654.png" id="5_koqhg"]
+[ext_resource type="Texture2D" uid="uid://clf18kwr60fno" path="res://Sprites/BattleSprites/Без названия1171_20260521032639.png" id="6_rrcx7"]
+[ext_resource type="Texture2D" uid="uid://korgb6fo01wp" path="res://Sprites/BattleSprites/Без названия1171_20260521032632.png" id="7_fh7cp"]
+[ext_resource type="Texture2D" uid="uid://byv0tleg7njay" path="res://Sprites/UI/Без названия1171_20260520013646.png" id="8_8e205"]
+[ext_resource type="Texture2D" uid="uid://bolyk3xf1wwwg" path="res://Sprites/UI/Без названия1171_20260520013745.png" id="9_7467j"]
+[ext_resource type="Texture2D" uid="uid://bx0wobrggwpg6" path="res://Sprites/UI/Без названия1171_20260520013748.png" id="10_2x1g0"]
+[ext_resource type="Texture2D" uid="uid://6ow5g8a4r3k0" path="res://Sprites/UI/Без названия1171_20260520013739.png" id="11_riqfo"]
+[ext_resource type="Texture2D" uid="uid://dvkkerb3fponu" path="res://Sprites/UI/Без названия1171_20260520013742.png" id="12_yxkem"]
+
+[node name="MainMenu" type="Control" unique_id=528833813 node_paths=PackedStringArray("ConfirmMenu")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.9815355)
+script = ExtResource("1_tt5f1")
+ConfirmMenu = NodePath("ConfirmMenu")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=881195628]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 108.0
+texture = ExtResource("2_df05h")
+expand_mode = 1
+
+[node name="TextureButton" type="TextureButton" parent="TextureRect" unique_id=345021481]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 67.241585
+offset_right = 118.0
+offset_bottom = 107.24159
+texture_normal = ExtResource("3_8um5k")
+texture_pressed = ExtResource("4_xim88")
+texture_hover = ExtResource("5_koqhg")
+
+[node name="ExitButton" type="TextureButton" parent="." unique_id=1787581197]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0188118
+offset_right = 20.0
+offset_bottom = 16.018812
+scale = Vector2(0.9768574, 0.94666696)
+texture_normal = ExtResource("6_rrcx7")
+texture_pressed = ExtResource("6_rrcx7")
+texture_hover = ExtResource("7_fh7cp")
+ignore_texture_size = true
+
+[node name="ConfirmMenu" type="Control" parent="." unique_id=1919892119]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="ConfirmMenu" unique_id=56076793]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_8e205")
+
+[node name="TextureButton" type="TextureButton" parent="ConfirmMenu" unique_id=2036664829]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -17.0
+offset_right = -8.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("9_7467j")
+texture_pressed = ExtResource("9_7467j")
+texture_hover = ExtResource("10_2x1g0")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="TextureButton2" type="TextureButton" parent="ConfirmMenu" unique_id=730410274]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -17.0
+offset_right = 75.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("11_riqfo")
+texture_pressed = ExtResource("11_riqfo")
+texture_hover = ExtResource("12_yxkem")
+ignore_texture_size = true
+stretch_mode = 3
+
+[connection signal="pressed" from="TextureRect/TextureButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="OnExitButtonPressed"]
+[connection signal="pressed" from="ConfirmMenu/TextureButton" to="." method="OnConfirmNoPressed"]
+[connection signal="pressed" from="ConfirmMenu/TextureButton2" to="." method="OnConfirmYesPressed"]

@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://fjorlgjvduxd"]
+
+[ext_resource type="Script" uid="uid://cbe47ty6k0r1c" path="res://Scripts/LevelSelect.cs" id="1_chbko"]
+[ext_resource type="Texture2D" uid="uid://1myq7cxpinna" path="res://Sprites/Button_SelectMenu/Без названия1171_20260520020602.png" id="2_7eg28"]
+[ext_resource type="Texture2D" uid="uid://dxigkcmkhuukq" path="res://Sprites/Button_SelectMenu/Без названия1170_20260518004526.png" id="2_pp72x"]
+[ext_resource type="Texture2D" uid="uid://dx05q5o02r70w" path="res://Sprites/Button_SelectMenu/Без названия1170_20260518004630.png" id="3_7eg28"]
+[ext_resource type="Texture2D" uid="uid://bh21w6jp4tp38" path="res://Sprites/Button_SelectMenu/Без названия1170_20260518013843.png" id="4_v7iwv"]
+[ext_resource type="Texture2D" uid="uid://bacigbi5dkt8g" path="res://Sprites/Button_SelectMenu/Menu1.png" id="5_anenh"]
+[ext_resource type="Texture2D" uid="uid://qlcvvujdak3m" path="res://Sprites/Button_SelectMenu/Без названия1170_20260518004723.png" id="6_hryoq"]
+[ext_resource type="Texture2D" uid="uid://lpvveqti515g" path="res://Sprites/Button_SelectMenu/Без названия1170_20260518004257.png" id="7_vpu1a"]
+[ext_resource type="Texture2D" uid="uid://qdev7ig48qfi" path="res://Sprites/Button_SelectMenu/Без названия1170_20260518005055.png" id="8_pnwuy"]
+[ext_resource type="Texture2D" uid="uid://dim7fan3h0r6" path="res://Sprites/Button_SelectMenu/Без названия1170_20260518005200.png" id="9_to30j"]
+[ext_resource type="Texture2D" uid="uid://bw5i8tl11o2nw" path="res://Sprites/Button_SelectMenu/Без названия1170_20260518005020.png" id="10_55mtt"]
+
+[node name="LevelSelect" type="Control" unique_id=1182223497]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_chbko")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=493894942]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 108.0
+texture = ExtResource("2_7eg28")
+expand_mode = 1
+
+[node name="Choose 2" type="TextureButton" parent="." unique_id=1581834757]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -28.5
+offset_right = 19.0
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_pp72x")
+texture_pressed = ExtResource("3_7eg28")
+texture_hover = ExtResource("4_v7iwv")
+stretch_mode = 5
+
+[node name="Choose 1" type="TextureButton" parent="." unique_id=1605916194]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.505
+anchor_right = 0.25
+anchor_bottom = 0.505
+offset_left = -21.0
+offset_top = -28.54
+offset_right = 17.0
+offset_bottom = 28.46
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_anenh")
+texture_pressed = ExtResource("6_hryoq")
+texture_hover = ExtResource("7_vpu1a")
+stretch_mode = 5
+
+[node name="Choose 3" type="TextureButton" parent="." unique_id=759595666]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = -28.0
+offset_right = 70.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("8_pnwuy")
+texture_pressed = ExtResource("9_to30j")
+texture_hover = ExtResource("10_55mtt")
+stretch_mode = 5
+
+[connection signal="pressed" from="Choose 1" to="." method="_on_button_pressed"]
