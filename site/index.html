@@ -3,100 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHYLAX - Проект игры</title>
+    <title>Forest Ranger - Проект игры</title>
     <style>
+        :root {
+            --glass-bg: rgba(20, 30, 35, 0.7);
+            --border-color: rgba(118, 144, 156, 0.3);
+            --text-main: #cfd8dc;
+            --accent: #78909c;
+        }
 
         html, body {
             height: 100%;
             margin: 0;
             padding: 0;
-        }
-
-        body {
-            background-image: linear-gradient(rgba(11, 17, 20, 0.85), rgba(11, 17, 20, 0.85)), 
-                              url('image_a8a751.jpg');
-            background-color: #0b1114;
-            background-attachment: fixed;
+            background: #0b1114 url('image_a8a751.jpg') no-repeat center center fixed;
             background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            
-            color: #cfd8dc;
-            font-family: Arial, sans-serif;
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
         }
 
+        .overlay {
+            min-height: 100vh;
+            background: linear-gradient(180deg, rgba(11, 17, 20, 0.6) 0%, rgba(11, 17, 20, 0.9) 100%);
+            padding-bottom: 50px;
+        }
+
         header {
-            background-color: rgba(10, 18, 22, 0.95);
-            padding: 40px 20px;
+            padding: 60px 20px;
             text-align: center;
-            border-bottom: 2px solid #263238;
         }
 
         header h1 {
             margin: 0;
-            color: #78909c;
-            font-size: 2.5em;
-            letter-spacing: 2px;
+            color: #eceff1;
+            font-size: 3em;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         header p {
             margin: 10px 0 0;
-            font-size: 1.1em;
-            color: #546e7a;
+            font-size: 1.2em;
+            color: var(--accent);
+            letter-spacing: 1px;
         }
 
         nav {
-            background-color: #1c272b;
-            padding: 15px;
+            background: rgba(10, 15, 18, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #37474f;
+            border-bottom: 1px solid var(--border-color);
         }
 
         nav a {
-            color: #ffffff;
+            color: #fff;
             text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            font-size: 0.9em;
+            margin: 0 20px;
+            font-weight: 500;
             transition: color 0.3s;
         }
 
-        nav a:hover {
-            color: #90a4ae;
-        }
+        nav a:hover { color: var(--accent); }
 
         .container {
-            max-width: 900px;
+            max-width: 850px;
             margin: 20px auto;
-            padding: 20px;
+            padding: 0 20px;
         }
 
         section {
-            background-color: rgba(30, 43, 49, 0.92);
-            padding: 30px;
-            border-radius: 8px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            padding: 40px;
+            border-radius: 16px;
             margin-bottom: 30px;
-            border: 1px solid #37474f;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
         }
 
         h2 {
-            color: #90a4ae;
-            border-bottom: 1px solid #37474f;
-            padding-bottom: 10px;
+            color: #eceff1;
             margin-top: 0;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
         }
 
         .content-img {
             width: 100%;
             height: auto;
-            border-radius: 4px;
+            border-radius: 12px;
             margin: 20px 0;
-            display: block;
-            border: 1px solid #37474f;
+            border: 1px solid var(--border-color);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .member-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .member-card h4 { color: #fff; margin: 0 0 10px 0; }
+        .member-card p { color: var(--accent); font-size: 0.9em; margin: 0; }
+
+        .log-entry {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
         }
 
         .gallery {
@@ -110,154 +139,114 @@
             height: 150px;
             width: auto;
             border-radius: 4px;
-            border: 1px solid #37474f;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .member-card {
-            background-color: rgba(22, 33, 39, 0.95);
-            padding: 25px;
-            border-radius: 5px;
-            border: 1px solid #37474f;
-            text-align: center;
-        }
-
-        .member-card h4 {
-            margin: 0 0 10px 0;
-            color: #eceff1;
-            font-size: 1.2em;
-        }
-
-        .member-card p {
-            font-size: 1em;
-            margin: 0;
-            color: #90a4ae;
-        }
-
-        .log-entry {
-            background-color: rgba(28, 40, 46, 0.75);
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            border-left: 5px solid #546e7a;
+            border: 1px solid var(--border-color);
         }
 
         footer {
             text-align: center;
-            padding: 50px 20px;
-            color: #455a64;
-            font-size: 1.1em;
-            background-color: rgba(11, 17, 20, 0.95);
-            border-top: 1px solid #263238;
+            padding: 40px;
+            color: var(--accent);
+            font-weight: 300;
         }
-
-        ul { padding-left: 20px; }
-        li { margin-bottom: 8px; }
-
     </style>
 </head>
 <body>
+    <div class="overlay">
+        <header>
+            <h1>Forest Ranger</h1>
+            <p>Проект мобильной игры с элементами детектива</p>
+        </header>
 
-    <header>
-        <h1>PHYLAX (Forest Ranger)</h1>
-        <p>Студенческий проект мобильной игры с элементами детектива</p>
-    </header>
+        <nav>
+            <a href="#home">Аннотация</a>
+            <a href="#about">О проекте</a>
+            <a href="#team">Команда</a>
+            <a href="#journal">Журнал</a>
+            <a href="#resources">Ресурсы</a>
+        </nav>
 
-    <nav>
-        <a href="#home">Аннотация</a>
-        <a href="#about">О проекте</a>
-        <a href="#team">Команда</a>
-        <a href="#journal">Журнал</a>
-        <a href="#resources">Ресурсы</a>
-    </nav>
+        <div class="container">
+            <section id="home">
+                <h2>Аннотация</h2>
+                <p>Forest Ranger — это мобильное стелс-приключение с элементами детектива. Игра предлагает иммерсивный геймплей который побуждает исследования и погружение.</p>
+                <img src="image_d8a493.jpg" alt="Концепт-арт" class="content-img">
+            </section>
 
-    <div class="container">
-        
-        <section id="home">
-            <h2>Аннотация</h2>
-            <p>PHYLAX — это мобильное стелс-приключение с элементами детектива. Игра предлагает иммерсивный геймплей который побуждает исследования и погружение.</p>
-            <img src="image_d8a493.jpg" alt="[Концепт-арт PHYLAX]" class="content-img">
-        </section>
+            <section id="about">
+                <h2>О проекте</h2>
+                <p><strong>Жанр:</strong> Симулятор, Приключение, Детектив.</p>
+                <p><strong>Сюжет:</strong> После появления в заповеднике банды браконьеров «Чёрные следопыты» лес начинает меняться. Главному герою предстоит защитить наследие своего отца, остановить захват территории и раскрыть тайну аномалии «Тропа Древних», которую браконьеры хотят превратить в источник прибыли.</p>
+                
+                <img src="image_d899f4.jpg" alt="Сюжетный арт" class="content-img">
 
-        <section id="about">
-            <h2>О проекте</h2>
-            <p><strong>Жанр:</strong> Симулятор, Приключение, Детектив.</p>
-            <p><strong>Сюжет:</strong> Главный герой противостоит банде браконьеров «Чёрные следопыты». Их основная задача — завладеть заповедником отца и открыть свой охотничий клуб, а также продать доступ к аномалии «Тропа Древних», которая является главной тайной леса.</p>
-            
-            <img src="image_d899f4.jpg" alt="[Сюжетный арт]" class="content-img">
+                <h3>Ключевые особенности:</h3>
+                <ul>
+                    <li>Система патрулирования территории.</li>
+                    <li>Взаимодействие с фауной леса.</li>
+                    <li>Две разные концовки в зависимости от выбора игрока.</li>
+                    <li>Ощущение открытого мира.</li>
+                </ul>
 
-            <h3>Ключевые особенности:</h3>
-            <ul>
-                <li>Система патрулирования территории.</li>
-                <li>Взаимодействие с фауной леса.</li>
-                <li>Две разные концовки в зависимости от выбора игрока.</li>
-                <li>Ощущение открытого мира.</li>
-            </ul>
-        </section>
+                <h3>Цели проекта</h3>
+                <p>Создание мобильного игрового продукта с возможностью выхода на мобильный игровой рынок. Проект нацелен на продвижение игровой индустрии и привлечение внимания к молодым разработчикам с целью обеспечить их необходимыми ресурсами для разработки конкурентно-способных продуктов для игрового рынка.</p>
+            </section>
 
-        <section id="team">
-            <h2>Наша команда</h2>
-            <div class="team-grid">
-                <div class="member-card">
-                    <h4>Опарин Георгий</h4>
-                    <p>Левел дизайнер</p>
+            <section id="team">
+                <h2>Наша команда</h2>
+                <div class="team-grid">
+                    <div class="member-card">
+                        <h4>Опарин Георгий</h4>
+                        <p><strong>Левел дизайнер:</strong> Разработка и техническая реализация внутриигровых уровней. (Отрисовка "тайлов" и составление из них карты перемещения игрока)</p>
+                    </div>
+                    <div class="member-card">
+                        <h4>Тишина Кира</h4>
+                        <p><strong>Сценарист:</strong> Проработка сценарной части игры. (Взаимодействие фракций внутри игрового лора и т.д.)</p>
+                    </div>
+                    <div class="member-card">
+                        <h4>Баляева Марьяна</h4>
+                        <p><strong>Художник:</strong> Отрисовка большого количества внутриигровых ассетов (Иконки предметов, предметы окружения)</p>
+                    </div>
                 </div>
-                <div class="member-card">
-                    <h4>Тишина Кира</h4>
-                    <p>Сценарист</p>
-                </div>
-                <div class="member-card">
-                    <h4>Баляева Марьяна</h4>
-                    <p>Художник</p>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="journal">
-            <h2>Журнал работы</h2>
-            <div class="log-entry">
-                <h3>Этап 1: Проработка идеи и создание концепт артов</h3>
-                <p>Определились с основной идеей и жанром игры и устроили мозговой штурм по поводу идей для реализации.</p>
-                <div class="gallery">
-                    <img src="image_d892aa.png" alt="[Концепт 1]">
-                    <img src="image_d8920d.jpg" alt="[Концепт 2]">
-                    <img src="image_d891b6.jpg" alt="[Концепт 3]">
+            <section id="journal">
+                <h2>Журнал работы</h2>
+                <div class="log-entry">
+                    <h3>Этап 1: Проработка идеи и создание концепт артов</h3>
+                    <div class="gallery">
+                        <img src="image_d892aa.png" alt="Концепт 1">
+                        <img src="image_d8920d.jpg" alt="Концепт 2">
+                        <img src="image_d891b6.jpg" alt="Концепт 3">
+                    </div>
                 </div>
-            </div>
-
-            <div class="log-entry">
-                <h3>Этап 2: Проработка ключевых механик</h3>
-                <p>После, нужно было определиться с тем, что удержит игрока в игре. Были продуманы интересные механики для геймплея и вознаграждения за них.</p>
-                <div class="gallery">
-                    <img src="image_d88a6b.jpg" alt="[Механики]">
+                <div class="log-entry">
+                    <h3>Этап 2: Проработка ключевых механик</h3>
+                    <div class="gallery">
+                        <img src="image_d88a6b.jpg" alt="Механики">
+                    </div>
                 </div>
-            </div>
-
-            <div class="log-entry">
-                <h3>Этап 3: Создание фейкшотов и in-game ассетов</h3>
-                <p>Для исправной работы программистов, нужны были готовые ассеты и изображения того, как игра выглядела бы для игрока.</p>
-                <div class="gallery">
-                    <img src="Снимок экрана (1579).jpg" alt="[Фейкшот 1]">
-                    <img src="image_d83074.png" alt="[Фейкшот 2]">
+                <div class="log-entry">
+                    <h3>Этап 3: Создание фейкшотов и in-game ассетов</h3>
+                    <div class="gallery">
+                        <img src="Снимок экрана (1579).jpg" alt="Фейкшот 1">
+                        <img src="image_d83074.png" alt="Фейкшот 2">
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="resources">
-            <h2>Ресурсы и материалы</h2>
-            <p>В данном разделе будут размещены дополнительные материалы проекта.</p>
-        </section>
+            <section id="resources">
+                <h2>Ресурсы и материалы</h2>
+                <ul>
+                    <li><a href="https://www.mnr.gov.ru/press/aboutsite/" style="color:var(--accent);">Сайт Минприроды России</a></li>
+                    <li><a href="https://docs.google.com/document/d/1REHLwsQ_UX3ucy9cONih4RA6lV2lsdEP_-n0yzNQwxk/edit?tab=t.0" style="color:var(--accent);">Артбук Forest Ranger</a></li>
+                    <li><a href="https://docs.google.com/document/d/1nJ417KuJR3I1F4js8878fbvI36OnoCUlze5niMKIUWM/edit?tab=t.0" style="color:var(--accent);">Геймдизайн Документ Forest Ranger</a></li>
+                </ul>
+            </section>
+        </div>
 
+        <footer>
+            Московский политех 2026
+        </footer>
     </div>
-
-    <footer>
-        <p>Московский политех 2026</p>
-    </footer>
-
 </body>
 </html>
